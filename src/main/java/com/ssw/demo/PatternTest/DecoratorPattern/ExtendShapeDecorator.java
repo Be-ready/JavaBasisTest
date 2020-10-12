@@ -17,7 +17,7 @@ public class ExtendShapeDecorator extends ShapeDecorator {
     }
 
     // 新增的功能
-    private void setRedBorder(Shape shape){
+    private void setRedBorder(Shape shape) {
         System.out.println("Border Color: Red");
     }
 

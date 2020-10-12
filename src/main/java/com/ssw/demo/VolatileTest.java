@@ -33,7 +33,7 @@ public class VolatileTest {
     public static void main(String[] args) {
         Thread1 t1 = new Thread1();
         new Thread(t1).start();
-        while(true) {
+        while (true) {
             synchronized (t1) {
                 if (t1.isFlag()) {
                     System.out.println("flag被设置为true");

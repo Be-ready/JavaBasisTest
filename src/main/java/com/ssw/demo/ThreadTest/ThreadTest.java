@@ -5,7 +5,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
-/** 线程相关练习
+/**
+ * 线程相关练习
+ *
  * @author wss
  * @created 2020/8/10 8:56
  * @since 1.0
@@ -21,10 +23,11 @@ public class ThreadTest {
             this.s = s;
         }
 
-        public void run () {
-            System.out.println("this is "+getName()+" " +s);
+        public void run() {
+            System.out.println("this is " + getName() + " " + s);
         }
     }
+
     // 实现Runnable接口创建线程
     public static class Thread2 implements Runnable {
         private String s;
@@ -35,7 +38,7 @@ public class ThreadTest {
 
         @Override
         public void run() {
-            System.out.println("this is "+Thread.currentThread().getName()+ " "+ s);
+            System.out.println("this is " + Thread.currentThread().getName() + " " + s);
         }
     }
 
@@ -57,7 +60,7 @@ public class ThreadTest {
 //                    + " " +i);
 //            if (i == 5) {
 
-                  // 输出不连续
+        // 输出不连续
 //                new Thread1("test"+i+"fir").start();
 //                new Thread1("test"+i+"sec").start();
 //            }
@@ -102,6 +105,7 @@ public class ThreadTest {
         new Thread(new Blocked(), "BlockedThread-2").start();
 
     }
+
     // 该线程不断地进行睡眠
     static class TimeWaiting implements Runnable {
         @Override
@@ -115,6 +119,7 @@ public class ThreadTest {
             }
         }
     }
+
     // 该线程在Waiting.class实例上等待
     static class Waiting implements Runnable {
         @Override
@@ -123,13 +128,14 @@ public class ThreadTest {
                 synchronized (Waiting.class) {
                     try {
                         Waiting.class.wait();
-                    }catch (InterruptedException e) {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
         }
     }
+
     // 该线程在Blocked.class实例上加锁后，不会释放该锁
     static class Blocked implements Runnable {
         public void run() {

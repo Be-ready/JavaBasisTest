@@ -9,11 +9,13 @@ import java.io.ObjectInputStream;
 import java.util.List;
 
 
-/** 《Redis实战》 4.4 Redis事务
- *
+/**
+ * 《Redis实战》 4.4 Redis事务
+ * <p>
  * 使用hash保存用户信息（users:userId name userName funds money）
  * 使用set保存用户包裹信息（inventory:userId item1 item2...）
  * 使用zset保存商场所有商品,商品价格作为分数（market: money itemId.userId）
+ *
  * @author wss
  * @created 2020/9/25 14:40
  * @since 1.0
@@ -35,12 +37,17 @@ public class fakeMarketTest {
         String marketKey = "market:";
         String inventoryKey = "inventory:";
         String[] s = new String[6];
-        s[0] = "A";s[1]="B";s[2]="C";s[3]="D";s[4]="E";s[5]="F";
+        s[0] = "A";
+        s[1] = "B";
+        s[2] = "C";
+        s[3] = "D";
+        s[4] = "E";
+        s[5] = "F";
         for (int i = 1; i <= 10; i++) {
-            conn.hset(userKey+i, "name", "A"+i);
-            conn.hset(userKey+i, "funds", String.valueOf(i*100));
+            conn.hset(userKey + i, "name", "A" + i);
+            conn.hset(userKey + i, "funds", String.valueOf(i * 100));
             for (int j = 1; j <= 5; j++) {
-                conn.sadd(inventoryKey+i, "item"+s[j]+i);
+                conn.sadd(inventoryKey + i, "item" + s[j] + i);
             }
         }
         // 使用split()函数分割字符串"itemC1.2"时，要注意转义字符.
@@ -55,16 +62,17 @@ public class fakeMarketTest {
 
     /**
      * 用户将包裹中的物品放在商场售卖
-     * @param itemId    物品Id
-     * @param sellerId  用户Id
-     * @param price     物品价格
+     *
+     * @param itemId   物品Id
+     * @param sellerId 用户Id
+     * @param price    物品价格
      * @return
      */
     private boolean listItem(Jedis conn, String itemId, String sellerId, long price) {
 
         String inventoryKey = "inventory:" + sellerId;
-        String itemKey      = itemId + "." + sellerId;
-        long endTime        = System.currentTimeMillis() + 5000;  // 加5秒
+        String itemKey = itemId + "." + sellerId;
+        long endTime = System.currentTimeMillis() + 5000;  // 加5秒
         Pipeline pipe = conn.pipelined();
         while (System.currentTimeMillis() < endTime) {
             // 监视卖家的包裹
@@ -77,7 +85,7 @@ public class fakeMarketTest {
             List<Object> list = pipe.syncAndReturnAll();
             System.out.println(list);  // 输出：[OK, true]
             // 判断指定商品是否在用户包裹中，否则取消监视
-            if ( list.size() > 0 && (list.get(1) == null || !(boolean)list.get(1)) ) {
+            if (list.size() > 0 && (list.get(1) == null || !(boolean) list.get(1))) {
                 conn.unwatch();
                 return false;
             }
@@ -99,19 +107,20 @@ public class fakeMarketTest {
 
     /**
      * 购买商品
-     * @param buyerId  买家Id
-     * @param itemKey  待售商品key(形式为itemId.userId)
+     *
+     * @param buyerId 买家Id
+     * @param itemKey 待售商品key(形式为itemId.userId)
      * @return
      */
     private boolean purchaseItem(Jedis conn, String buyerId, String itemKey) {
 
-        String marketKey    = "market:";                    // 商场key
-        String buyerKey     = "users:" + buyerId;           // 购买者key
-        String sellerKey    = "users:" + itemKey.split("\\.")[1];  // 售者key
-        String itemId       = itemKey.split("\\.")[0];  // 待售商品id
+        String marketKey = "market:";                    // 商场key
+        String buyerKey = "users:" + buyerId;           // 购买者key
+        String sellerKey = "users:" + itemKey.split("\\.")[1];  // 售者key
+        String itemId = itemKey.split("\\.")[0];  // 待售商品id
         String inventoryKey = "inventory:" + buyerId;       // 购买者包裹key
-        long end            = System.currentTimeMillis() + 10000;  // 加10秒
-        Pipeline pipe       = conn.pipelined();
+        long end = System.currentTimeMillis() + 10000;  // 加10秒
+        Pipeline pipe = conn.pipelined();
         // 如果失败，进行重试，最大重试时间为10秒
         while (System.currentTimeMillis() < end) {
             // 监视商场和买家包裹信息
@@ -128,7 +137,9 @@ public class fakeMarketTest {
 //            Object funds = list.get(2);
 
             // 判断，前者条件判断商店是否有该商品，后者判断是否有该用户
-            if (list.get(1) == null || list.get(2) == null){ return false;}
+            if (list.get(1) == null || list.get(2) == null) {
+                return false;
+            }
 
             long price = new Double((double) list.get(1)).longValue();
 //            System.out.println("money:" + price);
@@ -169,6 +180,7 @@ public class fakeMarketTest {
 
     /**
      * 商品拍卖
+     *
      * @param conn
      * @param saleItemsKey
      * @param seconds
@@ -177,13 +189,13 @@ public class fakeMarketTest {
     private boolean saleByLimitTime(Jedis conn, String saleItemsKey, Integer seconds) {
 
 
-
         return true;
     }
 
     /**
      * 添加待拍卖的商品
      * 使用hash存储待拍卖的商品信息（saleItems:itemId name sum price）
+     *
      * @param conn
      * @param itemId
      * @param name
@@ -217,9 +229,9 @@ public class fakeMarketTest {
         System.out.println("商店信息：" + conn.zrange("market:", 0, -1));
 
         // id=1的用户将itemC1商品放入商店售卖(该商品在商店的id设置为itemC1.1)
-        t.listItem(conn,"itemC1", "1", 99);
-        System.out.println("用户1的信息：" +conn.hgetAll("users:1"));
-        System.out.println("用户1的包裹：" +conn.smembers("inventory:1"));
+        t.listItem(conn, "itemC1", "1", 99);
+        System.out.println("用户1的信息：" + conn.hgetAll("users:1"));
+        System.out.println("用户1的包裹：" + conn.smembers("inventory:1"));
         System.out.println("商店信息：" + conn.zrange("market:", 0, -1));
 
         // id=2的用户购买id=1的用户在商场售卖的id=itemC1的商品(该商品在商店的id=itemC1.1)

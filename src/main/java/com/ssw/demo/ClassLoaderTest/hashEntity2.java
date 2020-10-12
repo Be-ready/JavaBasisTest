@@ -32,6 +32,7 @@ public class hashEntity2 {
 
     /**
      * hash值会随着变量i和j的改变而改变，所以该对象是可变对象
+     *
      * @return
      */
     @Override
@@ -46,12 +47,22 @@ public class hashEntity2 {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) { return true;}
-        if (obj == null) { return false;}
-        if (!(obj instanceof hashEntity2)) { return false;}
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof hashEntity2)) {
+            return false;
+        }
         hashEntity2 other = (hashEntity2) obj;
-        if (i != other.i) { return false;}
-        if (j != other.j) { return false;}
+        if (i != other.i) {
+            return false;
+        }
+        if (j != other.j) {
+            return false;
+        }
         return true;
         // return super.equals(obj);
     }

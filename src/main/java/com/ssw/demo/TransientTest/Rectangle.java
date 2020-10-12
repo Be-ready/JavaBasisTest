@@ -2,7 +2,9 @@ package com.ssw.demo.TransientTest;
 
 import java.io.Serializable;
 
-/** 作为测试transient关键字的实体类使用
+/**
+ * 作为测试transient关键字的实体类使用
+ *
  * @author wss
  * @created 2020/9/2 10:58
  * @since 1.0

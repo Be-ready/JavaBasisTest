@@ -2,7 +2,9 @@ package com.ssw.demo.PatternTest.FactoryPattern;
 
 import java.util.Properties;
 
-/** 使用反射创建工厂类
+/**
+ * 使用反射创建工厂类
+ *
  * @author wss
  * @created 2020/9/21 10:16
  * @since 1.0

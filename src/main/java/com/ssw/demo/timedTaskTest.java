@@ -10,7 +10,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/** 定时任务练习
+/**
+ * 定时任务练习
+ *
  * @author wss
  * @created 2020/9/2 15:50
  * @since 1.0
@@ -35,7 +37,7 @@ public class timedTaskTest {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                System.out.println("hello!"+new Date());
+                System.out.println("hello!" + new Date());
             }
         };
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
@@ -65,7 +67,7 @@ public class timedTaskTest {
         long oneDay = 24 * 60 * 60 * 1000;  // 一天的毫秒数
         // 判断定时的时间是否超过当前时间（用对应的毫米数判断）
         long initDelay = getTimeMills("20:00:00") - System.currentTimeMillis();
-        initDelay = initDelay > 0 ? initDelay : oneDay+initDelay;
+        initDelay = initDelay > 0 ? initDelay : oneDay + initDelay;
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -78,7 +80,8 @@ public class timedTaskTest {
 
     /**
      * 换算输入的yy:MM:ss格式的时间对应的毫秒数
-     * @param time  时分秒（示例：  20:00:00）
+     *
+     * @param time 时分秒（示例：  20:00:00）
      * @return
      */
     private static long getTimeMills(String time) {

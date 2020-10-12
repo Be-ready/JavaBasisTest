@@ -4,11 +4,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-/** 代理类(实现InvocationHandler接口)
+/**
+ * 代理类(实现InvocationHandler接口)
  * Proxy.newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)
  * loader类加载器用于加载代理类的字节码；interfaces为代理类需要实现的接口；h为代理对象实际调用的方法即invoke方法。
  * 示例：
  * Proxy.newProxyInstance(this.getClass().getClassLoader, target.getClass().getInterfaces(), InvocationHandler h)
+ *
  * @author wss
  * @created 2020/10/12 9:58
  * @since 1.0
@@ -25,8 +27,8 @@ public class CarProxy implements InvocationHandler {
     public Car createProxy() {
 
         Car car_proxy = (Car) Proxy.newProxyInstance(this.getClass().getClassLoader(),
-                                                     car.getClass().getInterfaces(),
-                                                     this);
+                car.getClass().getInterfaces(),
+                this);
 //        Car car_proxy = (Car) Proxy.newProxyInstance(car.getClass().getClassLoader(), new Class[]{Car.class}, this);
         return car_proxy;
     }

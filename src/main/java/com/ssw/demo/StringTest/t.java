@@ -2,7 +2,9 @@ package com.ssw.demo.StringTest;
 
 import org.junit.Test;
 
-/** String、StringBuffer和StringBuilder练习
+/**
+ * String、StringBuffer和StringBuilder练习
+ *
  * @author wss
  * @created 2020/9/30 16:17
  * @since 1.0

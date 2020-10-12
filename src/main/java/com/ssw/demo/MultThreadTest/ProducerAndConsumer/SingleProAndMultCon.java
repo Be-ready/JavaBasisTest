@@ -2,8 +2,9 @@ package com.ssw.demo.MultThreadTest.ProducerAndConsumer;
 
 import java.util.concurrent.*;
 
-/** 多消费者和多生产者模式（）  参考https://blog.csdn.net/oumuv/article/details/87074062
- *
+/**
+ * 多消费者和多生产者模式（）  参考https://blog.csdn.net/oumuv/article/details/87074062
+ * <p>
  * 最初设想：生产者启动多个线程执行任务，将任务执行结果抽取到队列中，消费者启动多个线程处理结果
  * 需要的api: ThreadPoolExecutor
  *
@@ -13,7 +14,8 @@ import java.util.concurrent.*;
  */
 public class SingleProAndMultCon {
 
-    private volatile Integer index=1;  // 多个消费者线程会对index进行++操作，加锁
+    private volatile Integer index = 1;  // 多个消费者线程会对index进行++操作，加锁
+
     /**
      * 生产者线程
      */
@@ -82,7 +84,6 @@ public class SingleProAndMultCon {
         executor.submit(p2);
         executor.submit(c1);
         executor.submit(c2);
-
 
 
 //        Storage storage = new Storage(1);

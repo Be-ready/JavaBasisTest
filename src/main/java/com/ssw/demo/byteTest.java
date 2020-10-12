@@ -16,10 +16,10 @@ public class byteTest {
         for (byte s_ : s.getBytes()) {
             System.out.println(s_);
         }
-        System.out.println("byte[0]="+(int)s.getBytes()[0]+",byte[1]="+(int)s.getBytes()[s.getBytes().length-1]);
-        System.out.println("byte[0]="+(int)s1.getBytes()[0]+",byte[1]="+(int)s1.getBytes()[s1.getBytes().length-1]);
-        System.out.println("byte[0]="+(int)s2.getBytes()[0]+",byte[1]="+(int)s2.getBytes()[s2.getBytes().length-1]);
-        System.out.println("byte[0]="+(int)s3.getBytes()[0]+",byte[1]="+(int)s3.getBytes()[s3.getBytes().length-1]);
+        System.out.println("byte[0]=" + (int) s.getBytes()[0] + ",byte[1]=" + (int) s.getBytes()[s.getBytes().length - 1]);
+        System.out.println("byte[0]=" + (int) s1.getBytes()[0] + ",byte[1]=" + (int) s1.getBytes()[s1.getBytes().length - 1]);
+        System.out.println("byte[0]=" + (int) s2.getBytes()[0] + ",byte[1]=" + (int) s2.getBytes()[s2.getBytes().length - 1]);
+        System.out.println("byte[0]=" + (int) s3.getBytes()[0] + ",byte[1]=" + (int) s3.getBytes()[s3.getBytes().length - 1]);
         // byte[0]=-26,byte[1]=-89
         //byte[0]=-27,byte[1]=-79
         //byte[0]=67,byte[1]=79
@@ -31,7 +31,7 @@ public class byteTest {
         //byte[0]=67,byte[1]=79
         //byte[0]=-27,byte[1]=-119
 
-        int a = 59/60;
+        int a = 59 / 60;
 
     }
 }

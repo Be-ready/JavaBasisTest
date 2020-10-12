@@ -18,14 +18,14 @@ public class hashTest {
     public static void main(String[] args) {
 
         // hashEntity类没有重写hashCode()方法
-        hashEntity ht = new hashEntity(1,2);  // 输出356573597
+        hashEntity ht = new hashEntity(1, 2);  // 输出356573597
         System.out.println(ht.hashCode());
         ht.setI(3);
         ht.setJ(4);
         System.out.println(ht.hashCode());        // 输出356573597
 
         // hashEntity2重写hashCode()方法
-        hashEntity2 ht2 = new hashEntity2(1,2);  // 输出994
+        hashEntity2 ht2 = new hashEntity2(1, 2);  // 输出994
         System.out.println(ht2.hashCode());
         ht2.setI(3);
         ht2.setJ(4);
@@ -33,7 +33,7 @@ public class hashTest {
 
         // 验证HashMap
         Map map = new HashMap();
-        hashEntity2 ht3 = new hashEntity2(5,6);
+        hashEntity2 ht3 = new hashEntity2(5, 6);
         map.put(ht3, "before set value");
         // key可为null
         map.put(null, "this is null for hashMap");
@@ -56,7 +56,7 @@ public class hashTest {
 
         // 验证ConcurrentHashMap
         ConcurrentHashMap cchMap = new ConcurrentHashMap();
-        hashEntity2 ht4 = new hashEntity2(11,12);
+        hashEntity2 ht4 = new hashEntity2(11, 12);
         cchMap.put(ht4, "this is cchMap");
         System.out.println(cchMap.get(ht4));  // 输出：this is cchMap
         ht4.setI(13);

@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-/**《Java并发编程的艺术》 ，4-11
+/**
+ * 《Java并发编程的艺术》 ，4-11
+ *
  * @author wss
  * @created 2020/8/11 10:11
  * @since 1.0
@@ -21,6 +23,7 @@ public class WaitNotify {
         Thread notifyThread = new Thread(new Notify(), "NotifyThread");
         notifyThread.start();
     }
+
     static class Wait implements Runnable {
         @Override
         public void run() {
@@ -28,9 +31,9 @@ public class WaitNotify {
                 while (flag) {
                     try {
                         System.out.println(Thread.currentThread() + " flag is true. waiting @ "
-                            + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                                + new SimpleDateFormat("HH:mm:ss").format(new Date()));
                         lock.wait();  // wait会释放锁，下面的sout暂时不会执行
-                    }catch (InterruptedException e){
+                    } catch (InterruptedException e) {
 
                     }
                 }
@@ -39,20 +42,21 @@ public class WaitNotify {
             }
         }
     }
+
     static class Notify implements Runnable {
         @Override
         public void run() {
             // 加锁
             synchronized (lock) {
                 System.out.println(Thread.currentThread() + "hold lock. notify @ "
-                    + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                        + new SimpleDateFormat("HH:mm:ss").format(new Date()));
                 lock.notifyAll();
                 flag = false;
                 SleepUtils.second(5);
             }
             synchronized (lock) {
                 System.out.println(Thread.currentThread() + " hold lock again. sleep @ "
-                    + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                        + new SimpleDateFormat("HH:mm:ss").format(new Date()));
                 SleepUtils.second(5);
             }
         }

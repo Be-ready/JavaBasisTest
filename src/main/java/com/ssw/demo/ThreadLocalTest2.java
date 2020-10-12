@@ -42,9 +42,9 @@ public class ThreadLocalTest2 {
         Random random = new Random();
         // -> java8的lambda表达式
         // 示例：(parameters) -> expression或者(parameters) -> { statements; }
-        IntStream.range(0,5).forEach(a-> new Thread(()-> {
-            local.set(a+"  " + random.nextInt(10));
-            System.out.println("线程和local值分别是 "+ local.get());
+        IntStream.range(0, 5).forEach(a -> new Thread(() -> {
+            local.set(a + "  " + random.nextInt(10));
+            System.out.println("线程和local值分别是 " + local.get());
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {

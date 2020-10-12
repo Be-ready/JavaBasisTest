@@ -1,6 +1,8 @@
 package com.ssw.demo.PatternTest.FactoryPattern;
 
-/** 反射和配置文件结合创建工厂类
+/**
+ * 反射和配置文件结合创建工厂类
+ *
  * @author wss
  * @created 2020/9/21 10:29
  * @since 1.0

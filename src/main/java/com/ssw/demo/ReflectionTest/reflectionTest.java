@@ -23,7 +23,6 @@ public class reflectionTest {
 
     /**
      * 运行时获得某个类的真正类型（子类还是父类）
-     *
      */
     public void getClassRealType() {
         Vo v = new Vo1();

@@ -6,7 +6,9 @@ import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 创建一个HashMap的代理类
+/**
+ * 创建一个HashMap的代理类
+ *
  * @author wss
  * @created 2020/10/12 14:25
  * @since 1.0

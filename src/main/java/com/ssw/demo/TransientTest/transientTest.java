@@ -11,7 +11,7 @@ public class transientTest {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Rectangle re = new Rectangle(3, 4);
-        System.out.println("原始对象："+ re);
+        System.out.println("原始对象：" + re);
 
         // 将对象写入流
         ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream("rectangle"));

@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**《Java并发编程的艺术》， 4-18
+/**
+ * 《Java并发编程的艺术》， 4-18
+ *
  * @author wss
  * @created 2020/8/11 14:52
  * @since 1.0
@@ -22,7 +24,7 @@ public class ConnectionPoolTest {
         int count = 20;
         AtomicInteger got = new AtomicInteger();
         AtomicInteger notGot = new AtomicInteger();
-        for (int i=0; i<threadCount; i++) {
+        for (int i = 0; i < threadCount; i++) {
             Thread thread = new Thread(new ConnectionRunner(count, got, notGot),
                     "ConnectionRunnerThread");
             thread.start();
@@ -68,8 +70,8 @@ public class ConnectionPoolTest {
                     } else {
                         notGot.incrementAndGet();
                     }
-                }catch (Exception ex) {
-                }finally {
+                } catch (Exception ex) {
+                } finally {
                     count--;
                 }
             }

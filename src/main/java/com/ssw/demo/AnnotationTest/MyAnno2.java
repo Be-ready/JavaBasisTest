@@ -13,5 +13,6 @@ import java.lang.annotation.Target;
 public @interface MyAnno2 {
 
     String operation();
+
     String description();
 }

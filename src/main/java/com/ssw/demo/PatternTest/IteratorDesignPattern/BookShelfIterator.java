@@ -1,6 +1,8 @@
 package com.ssw.demo.PatternTest.IteratorDesignPattern;
 
-/** 自定义迭代器接口的实现类
+/**
+ * 自定义迭代器接口的实现类
+ *
  * @author wss
  * @created 2020/9/14 9:37
  * @since 1.0

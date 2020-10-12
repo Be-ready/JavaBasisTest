@@ -15,13 +15,16 @@ public class LinkQueue<T> implements Serializable {
     private class Node {
         private T data;
         private Node next;
-        public Node() {}
+
+        public Node() {
+        }
 
         public Node(T data, Node next) {
             this.data = data;
             this.next = next;
         }
     }
+
     private Node front;
     private Node rear;
     private int size;
@@ -76,8 +79,8 @@ public class LinkQueue<T> implements Serializable {
     // 清空队列
     public void clear() {
         front = null;
-        rear  = null;
-        size  = 0;
+        rear = null;
+        size = 0;
     }
 
     public String toString() {

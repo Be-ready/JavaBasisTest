@@ -4,7 +4,9 @@ import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 
 import java.io.*;
 
-/** 深拷贝和浅拷贝
+/**
+ * 深拷贝和浅拷贝
+ *
  * @author wss
  * @created 2020/8/19 16:42
  * @since 1.0
@@ -62,7 +64,7 @@ public class copyTest {
         Company c = new Company("fpi");
         Person p1 = new Person(21, "ssw", c);
         Person p2 = (Person) p1.clone();  // 浅拷贝
-        p1.age=25;
+        p1.age = 25;
         System.out.println(p1);
         System.out.println(p2);
         System.out.println(p1.equals(p2));

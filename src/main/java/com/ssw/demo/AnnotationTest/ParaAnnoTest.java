@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 
 /**
  * 通过反射获取自定义注解
+ *
  * @author wss
  * @created 2020/9/3 10:00
  * @since 1.0
@@ -28,8 +29,8 @@ public class ParaAnnoTest {
         for (Field f : c.getDeclaredFields()) {
             if (f.isAnnotationPresent(MyFiled.class)) {
                 MyFiled anno = f.getAnnotation(MyFiled.class);
-                System.out.println("字段:{"+f.getName() + "}, 描述:{" + anno.description()
-                                    + "},长度:{"+anno.length() +"}");
+                System.out.println("字段:{" + f.getName() + "}, 描述:{" + anno.description()
+                        + "},长度:{" + anno.length() + "}");
             }
         }
     }

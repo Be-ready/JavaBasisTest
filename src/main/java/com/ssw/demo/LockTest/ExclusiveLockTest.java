@@ -5,7 +5,9 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
-/** 独占锁示例（了解同步器的工作原理，同步器使用的是模板方法策略）
+/**
+ * 独占锁示例（了解同步器的工作原理，同步器使用的是模板方法策略）
+ *
  * @author wss
  * @created 2020/9/8 11:12
  * @since 1.0
@@ -51,6 +53,7 @@ public class ExclusiveLockTest implements Lock {
     }
 
     private final Sync sync = new Sync();
+
     @Override
     public void lock() {
         sync.acquire(1);
@@ -80,9 +83,11 @@ public class ExclusiveLockTest implements Lock {
     public Condition newCondition() {
         return sync.newCondition();
     }
+
     public boolean isLocked() {
         return sync.isHeldExclusively();
     }
+
     public boolean hasQueueThreads() {
         return sync.hasQueuedThreads();
     }

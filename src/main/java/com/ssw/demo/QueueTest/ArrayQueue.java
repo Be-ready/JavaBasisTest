@@ -80,7 +80,7 @@ public class ArrayQueue<T> implements Serializable {
     // 清空顺序队列
     public void clear() {
         Arrays.fill(elementData, null);
-        rear  = 0;
+        rear = 0;
         front = 0;
     }
 
@@ -106,11 +106,11 @@ public class ArrayQueue<T> implements Serializable {
         a.push("s4");
         System.out.println(a.toString());
         System.out.println("the length is " + a.size());
-        System.out.println("a.front="+a.front+", a.rear="+a.rear);
+        System.out.println("a.front=" + a.front + ", a.rear=" + a.rear);
         a.pop();    // 移除队列头元素（先入先出，移除的是s1）
         System.out.println(a.toString());
         System.out.println("the length is " + a.size());
-        System.out.println("a.front="+a.front+", a.rear="+a.rear);
+        System.out.println("a.front=" + a.front + ", a.rear=" + a.rear);
         a.clear();
         System.out.println(a.toString());
     }

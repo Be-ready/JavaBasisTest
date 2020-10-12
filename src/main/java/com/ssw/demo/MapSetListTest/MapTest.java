@@ -14,7 +14,8 @@ import java.util.function.Predicate;
  */
 public class MapTest {
 
-    private static int MAXIMUM_CAPACITY = 1<<30;
+    private static int MAXIMUM_CAPACITY = 1 << 30;
+
     private static final int tableSizeFor(int cap) {
         int n = cap - 1;
         n |= n >>> 1;  // >>>:无符号右移
@@ -24,6 +25,7 @@ public class MapTest {
         n |= n >>> 16;
         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
+
     @Test
     public void t() {
 
@@ -35,9 +37,9 @@ public class MapTest {
         System.out.println(tableSizeFor(5));  // 输出 8
         System.out.println(tableSizeFor(10));  // 输出 16
 
-        System.out.println(1|3);  // | 按位或（输出为3，0001 | 0011 = 0011）
-        System.out.println(1&3);  // & 按位与（输出为1，0001 & 0011 = 0001）
-        System.out.println(1^3);  // ^ 异或  （输出为2，0001 ^ 0011 = 0010） 相同得0，不同得1
+        System.out.println(1 | 3);  // | 按位或（输出为3，0001 | 0011 = 0011）
+        System.out.println(1 & 3);  // & 按位与（输出为1，0001 & 0011 = 0001）
+        System.out.println(1 ^ 3);  // ^ 异或  （输出为2，0001 ^ 0011 = 0010） 相同得0，不同得1
     }
 
     /**
@@ -59,8 +61,8 @@ public class MapTest {
 
     /**
      * 二、hashMap迭代删除
-     *      1. 迭代器
-     *      2. java8中Collection新添加的removeIf()方法
+     * 1. 迭代器
+     * 2. java8中Collection新添加的removeIf()方法
      */
     @Test
     public void t2() {
@@ -99,8 +101,8 @@ public class MapTest {
 
     /**
      * String to Integer 方法：
-     *      1. Integer.valueOf(string).intValue()
-     *      2. Integer.parseInt(string)
+     * 1. Integer.valueOf(string).intValue()
+     * 2. Integer.parseInt(string)
      */
     @Test
     public void t3() {

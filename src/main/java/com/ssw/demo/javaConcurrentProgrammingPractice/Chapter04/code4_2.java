@@ -5,7 +5,9 @@ import com.ssw.demo.javaConcurrentProgrammingPractice.Person;
 import java.util.HashSet;
 import java.util.Set;
 
-/** 通过封装机制来确保线程安全(Person类的线程安全性未知，若其不安全，则需要额外的同步操作)
+/**
+ * 通过封装机制来确保线程安全(Person类的线程安全性未知，若其不安全，则需要额外的同步操作)
+ *
  * @author wss
  * @created 2020/9/14 15:53
  * @since 1.0

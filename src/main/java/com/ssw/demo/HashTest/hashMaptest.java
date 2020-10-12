@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-/** hashMap测试
+/**
+ * hashMap测试
+ *
  * @author wss
  * @created 2020/9/3 16:16
  * @since 1.0
@@ -40,13 +42,13 @@ public class hashMaptest {
 
     /**
      * 测试整型的最大值和HashMap中的MAXIMUM_CAPACITY哪个大
-     *  MAXIMUM_CAPACITY = 1 << 30   HashMap最大容量
-     *  DEFAULT_INITIAL_CAPACITY = 1 << 4  HashMap默认初始化的容量，16
+     * MAXIMUM_CAPACITY = 1 << 30   HashMap最大容量
+     * DEFAULT_INITIAL_CAPACITY = 1 << 4  HashMap默认初始化的容量，16
      */
     @Test
     public void t2() {
         System.out.println(Integer.MAX_VALUE);  // 2147483647
-        System.out.println(1<<30);  // 1073741824
+        System.out.println(1 << 30);  // 1073741824
     }
 
 
@@ -66,7 +68,7 @@ public class hashMaptest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                map.put("safe",((int)map.get("safe") + 1));
+                map.put("safe", ((int) map.get("safe") + 1));
                 System.out.println(Thread.currentThread().getName());
 
             }
@@ -80,7 +82,7 @@ public class hashMaptest {
                     e.printStackTrace();
                 }
 
-                map.put("safe","modified");
+                map.put("safe", "modified");
                 System.out.println(Thread.currentThread().getName());
             }
         });

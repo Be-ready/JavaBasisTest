@@ -1,6 +1,8 @@
 package com.ssw.demo.MultThreadTest.ProducerAndConsumer;
 
-/** 产品信息实体类
+/**
+ * 产品信息实体类
+ *
  * @author wss
  * @created 2020/9/7 15:04
  * @since 1.0

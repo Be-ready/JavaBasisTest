@@ -1,4 +1,6 @@
-/** Java多态示例
+/**
+ * Java多态示例
+ *
  * @author wss
  * @created 2020/9/29 13:57
  * @since 1.0

@@ -3,7 +3,9 @@ package com.ssw.demo;
 import java.sql.Connection;
 import java.util.LinkedList;
 
-/** 《Java并发编程的艺术》 ，4-16(数据库连接池示例)
+/**
+ * 《Java并发编程的艺术》 ，4-16(数据库连接池示例)
+ *
  * @author wss
  * @created 2020/8/11 14:19
  * @since 1.0
@@ -11,21 +13,24 @@ import java.util.LinkedList;
 public class ConnectionPool {
 
     private LinkedList<Connection> pool = new LinkedList<>();
+
     public ConnectionPool(int initialSize) {
         if (initialSize > 0) {
-            for (int i=0; i<initialSize; i++) {
+            for (int i = 0; i < initialSize; i++) {
                 pool.addLast(ConnectionDriver.createConnection());
             }
         }
     }
+
     public void releaseConnection(Connection connection) {
         if (connection != null) {
-            synchronized(pool) {
+            synchronized (pool) {
                 pool.addLast(connection);
                 pool.notifyAll();
             }
         }
     }
+
     public Connection fetchConnection(long mills) throws InterruptedException {
         synchronized (pool) {
             if (mills <= 0) {
@@ -33,7 +38,7 @@ public class ConnectionPool {
                     pool.wait();
                 }
                 return pool.removeFirst();
-            }else {
+            } else {
                 long future = System.currentTimeMillis() + mills;
                 long remaining = mills;
                 while (pool.isEmpty() && remaining > 0) {

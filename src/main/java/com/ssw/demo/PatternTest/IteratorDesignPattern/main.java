@@ -1,6 +1,7 @@
 package com.ssw.demo.PatternTest.IteratorDesignPattern;
 
-/** 迭代器设计模式示例
+/**
+ * 迭代器设计模式示例
  * 意图：提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示
  * https://www.cnblogs.com/zyrblog/p/9217673.html
  * 从该设计模式中我们可以看到接口的应用，面向接口编程的概念，以及元素的遍历与实现分离，实现了高内聚和低耦合。

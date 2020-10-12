@@ -15,6 +15,7 @@ public class test {
     Socket s = new Socket();
     DataInputStream dis;
     DataOutputStream ois;
+
     {
         try {
             dis = new DataInputStream(s.getInputStream());

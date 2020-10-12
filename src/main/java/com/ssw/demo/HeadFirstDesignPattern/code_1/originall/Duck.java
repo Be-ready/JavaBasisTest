@@ -6,7 +6,7 @@ package com.ssw.demo.HeadFirstDesignPattern.code_1.originall;
 abstract class Duck {
 
     // 呱呱叫
-    public void quark(){
+    public void quark() {
         System.out.println("quark...");
     }
 
@@ -18,6 +18,7 @@ abstract class Duck {
     public void fly() {
         System.out.println("I can fly...");
     }
+
     // 其他行为，可被子类继承并覆盖
     abstract void display();
 }

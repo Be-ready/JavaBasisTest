@@ -2,7 +2,9 @@ package com.ssw.demo.javaConcurrentProgrammingPractice.Chapter04;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** 该代码并非线程安全，setLower()和setUpper()
+/**
+ * 该代码并非线程安全，setLower()和setUpper()
+ *
  * @author wss
  * @created 2020/9/14 15:34
  * @since 1.0

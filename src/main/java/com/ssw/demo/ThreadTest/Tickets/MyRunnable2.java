@@ -10,7 +10,7 @@ public class MyRunnable2 implements Runnable {
     @Override
     public void run() {
         while (true) {
-            synchronized (lock){
+            synchronized (lock) {
                 if (num > 0) {
                     try {
                         Thread.sleep(100);

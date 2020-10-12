@@ -3,7 +3,9 @@ package com.ssw.demo.PatternTest.FactoryPattern;
 import java.io.*;
 import java.util.Properties;
 
-/** 操作配置文件的类
+/**
+ * 操作配置文件的类
+ *
  * @author wss
  * @created 2020/9/21 10:31
  * @since 1.0

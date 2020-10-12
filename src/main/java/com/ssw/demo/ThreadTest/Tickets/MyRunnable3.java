@@ -7,7 +7,7 @@ public class MyRunnable3 implements Runnable {
     @Override
     public void run() {
         while (true) {
-            synchronized (lock){
+            synchronized (lock) {
                 saleTickets();
             }
         }

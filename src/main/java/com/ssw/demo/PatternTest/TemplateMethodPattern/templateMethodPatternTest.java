@@ -2,8 +2,10 @@ package com.ssw.demo.PatternTest.TemplateMethodPattern;
 
 import org.junit.Test;
 
-/** 模板方法模式练习
+/**
+ * 模板方法模式练习
  * 解释：
+ *
  * @author wss
  * @created 2020/9/8 10:18
  * @since 1.0
@@ -21,7 +23,7 @@ public class templateMethodPatternTest {
         abstract void addTomato();
 
         // 钩子函数，让子类确认是否加油
-        boolean isAddOil(){
+        boolean isAddOil() {
             return true;
         }
 
@@ -38,7 +40,7 @@ public class templateMethodPatternTest {
     /**
      * 普通人做饭
      */
-    class MyCook extends Cook{
+    class MyCook extends Cook {
 
         private boolean addOilFlag = true;
 

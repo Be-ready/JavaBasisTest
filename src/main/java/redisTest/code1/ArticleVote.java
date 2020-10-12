@@ -5,7 +5,9 @@ import redis.clients.jedis.ZParams;
 
 import java.util.*;
 
-/** 文章投票示例（参考《Redis实战》1.3章节）
+/**
+ * 文章投票示例（参考《Redis实战》1.3章节）
+ *
  * @author wss
  * @created 2020/9/22 14:28
  * @since 1.0
@@ -23,6 +25,7 @@ public class ArticleVote {
 
     /**
      * 使用散列（hash）封装文章信息,key的形式为article:123（123为文章id）
+     *
      * @param title  标题
      * @param link   链接
      * @param userId 作者id
@@ -32,7 +35,7 @@ public class ArticleVote {
      */
     private void getArticle(String title, String articleId, String link, String userId, long time, int votes) {
 
-        String key  = "article:" + articleId;
+        String key = "article:" + articleId;
         String key2 = "user:" + userId;
         Map<String, String> map = new HashMap<>();
         map.put("title", title);
@@ -45,8 +48,9 @@ public class ArticleVote {
 
     /**
      * 计算文章评分（投票数*常数+当前linux时间）
-     * @param votes    投票数
-     * @param curTime  当前时间
+     *
+     * @param votes   投票数
+     * @param curTime 当前时间
      * @return
      */
     private double getVotes(int votes, long curTime) {
@@ -55,6 +59,7 @@ public class ArticleVote {
 
     /**
      * 使用2个Sorted set存储文章（按发布时间排序， 按评分排序）
+     *
      * @param articleId   文章id
      * @param votes       投票数
      * @param publishTime 发布时间
@@ -70,9 +75,9 @@ public class ArticleVote {
     }
 
     /**
-     *
      * 使用set记录为某篇文章已投票的用户
-     * @param userId  用户id
+     *
+     * @param userId 用户id
      */
     private void userVoted(String articleId, String userId) {
 
@@ -84,15 +89,16 @@ public class ArticleVote {
 
     /**
      * 用户给文章评分
-     * @param articleId  文章id
-     * @param userId     用户id
+     *
+     * @param articleId 文章id
+     * @param userId    用户id
      * @return
      */
     public boolean voteArticle(String articleId, String userId) {
 
         String key1 = "article:" + articleId;
-        String key2 = "voted:"   + articleId;
-        String key4 = "user:"    + userId;
+        String key2 = "voted:" + articleId;
+        String key4 = "user:" + userId;
         String key3 = "score:";
         long curoff = System.currentTimeMillis() - ONE_WEEK_IN_SECONDS;
         // 判断文章的发布时间是否超过一周
@@ -122,9 +128,10 @@ public class ArticleVote {
 
     /**
      * 发布文章
-     * @param userId  用户id
-     * @param title   文章标题
-     * @param link    文章链接
+     *
+     * @param userId 用户id
+     * @param title  文章标题
+     * @param link   文章链接
      * @return
      */
     public String publishArticle(String userId, String title, String link) {
@@ -145,7 +152,9 @@ public class ArticleVote {
         return articleId;
     }
 
-    /** 得到最新发布或者评分最高的文章列表
+    /**
+     * 得到最新发布或者评分最高的文章列表
+     *
      * @param key
      * @return
      */
@@ -163,9 +172,10 @@ public class ArticleVote {
 
     /**
      * 为文章添加分组
-     * @param articleId  文章id
-     * @param toAdd      群组列表
-     * @param toRemove   待移除的群组列表
+     *
+     * @param articleId 文章id
+     * @param toAdd     群组列表
+     * @param toRemove  待移除的群组列表
      */
     public void groupAddRemove(String articleId, List toAdd, List toRemove) {
 
@@ -180,8 +190,9 @@ public class ArticleVote {
 
     /**
      * 从群组中获得文章
-     * @param group  群组
-     * @param key    按发布时间排序存储或按评分排序存储的有序集合的key（"score:"  "time:"）
+     *
+     * @param group 群组
+     * @param key   按发布时间排序存储或按评分排序存储的有序集合的key（"score:"  "time:"）
      * @return
      */
     public List<Map> getArticlesFromGroup(String group, String key, int start, int end) {

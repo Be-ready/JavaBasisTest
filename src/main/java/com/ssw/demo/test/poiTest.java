@@ -8,7 +8,8 @@ import java.io.*;
 import java.util.Calendar;
 import java.util.Date;
 
-/** poi测试（导出excel表）
+/**
+ * poi测试（导出excel表）
  * 官网：http://poi.apache.org/components/spreadsheet/quick-guide.html
  * 导入相关jar包D:\apache-maven-3.5.4\repository\org\apache\poi\poi\4.0.0\poi-4.0.0.jar
  * 导入相关jar包D:\apache-maven-3.5.4\repository\org\apache\poi\poi\3.1.7\poi-3.1.7.jar
@@ -23,6 +24,7 @@ public class poiTest {
     // 注意：a.xls对应HSSFWorkbook, a.xlsx对应XSSFWorkbook
     private static Workbook wb = new HSSFWorkbook();
     private static OutputStream fileOut = null;
+
     /**
      * 测试新建空的excel文件
      */

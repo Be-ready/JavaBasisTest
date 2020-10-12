@@ -2,7 +2,9 @@ package com.ssw.demo;
 
 import java.util.Arrays;
 
-/** 数组复制
+/**
+ * 数组复制
+ *
  * @author wss
  * @created 2020/8/19 8:35
  * @since 1.0
@@ -10,8 +12,8 @@ import java.util.Arrays;
 public class ListTest {
 
     public static void main(String[] args) {
-        int[] arr1 = {1,2,3};
-        int[] arr2 = {2,5,6, 0, 0,0};
+        int[] arr1 = {1, 2, 3};
+        int[] arr2 = {2, 5, 6, 0, 0, 0};
 
         //  第一个参数是要被复制的数组
         //  第二个参数是被复制的数字开始复制的下标
@@ -19,11 +21,11 @@ public class ListTest {
         //  第四个参数是从目标数据第几个下标开始放入数据
         //  第五个参数表示从被复制的数组中拿几个数值放到目标数组中
         System.arraycopy(arr1, 0, arr2, 3, 3);
-        for (int a: arr2) {
+        for (int a : arr2) {
             System.out.println(a);  // 2,5,6,1,2,3
         }
         Arrays.sort(arr2);
-        for (int a: arr2) {
+        for (int a : arr2) {
             System.out.println(a);  // 1,2,2,3,5,6
         }
     }

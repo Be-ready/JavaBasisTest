@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ExecutorTest {
 
     private AtomicInteger i = null;
+
     public class t implements Callable {
         @Override
         public Object call() throws Exception {
@@ -36,7 +37,7 @@ public class ExecutorTest {
             }
         });
         new Thread(f, "测试").start();
-        System.out.println("线程callable返回值为："+f.get());
+        System.out.println("线程callable返回值为：" + f.get());
     }
 
     // Executors.callable(Runnable r)  可将Runnable线程转换成Callable线程
@@ -61,8 +62,8 @@ public class ExecutorTest {
         FutureTask f2 = new FutureTask(c2);
         new Thread(f).start();
         new Thread(f2).start();
-        System.out.println("this is f:"+f.get());
-        System.out.println("this is f2:"+f2.get());
+        System.out.println("this is f:" + f.get());
+        System.out.println("this is f2:" + f2.get());
     }
 
     @Test

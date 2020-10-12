@@ -1,6 +1,8 @@
 package com.ssw.demo.javaConcurrentProgrammingPractice.Chapter04.code4_2_2;
 
-/** 车辆跟踪示例的记录车辆坐标的实体类
+/**
+ * 车辆跟踪示例的记录车辆坐标的实体类
+ *
  * @author wss
  * @created 2020/9/18 14:28
  * @since 1.0

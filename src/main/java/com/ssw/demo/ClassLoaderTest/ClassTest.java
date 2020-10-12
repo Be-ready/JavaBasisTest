@@ -1,6 +1,7 @@
 package com.ssw.demo.ClassLoaderTest;
 /**
- *  类加载器练习
+ * 类加载器练习
+ *
  * @author wss
  * @created 2020/9/1 16:16
  * @since 1.0
@@ -25,7 +26,7 @@ public class ClassTest {
 
         hashEntity he = new hashEntity(1, 2);
         ReferenceQueue rfq = new ReferenceQueue();
-        SoftReference srf = new SoftReference(he,rfq);
+        SoftReference srf = new SoftReference(he, rfq);
         hashEntity he2 = (hashEntity) srf.get();
         he = null;
         System.out.println(rfq.poll());         //
@@ -34,7 +35,7 @@ public class ClassTest {
         System.out.println(he2.getI());         // 1
         System.out.println(he);                 // null
 
-        hashEntity he3 = new hashEntity(3,4);
+        hashEntity he3 = new hashEntity(3, 4);
         WeakReference wr = new WeakReference(he3);  // 弱引用
         System.out.println(wr.get());
 

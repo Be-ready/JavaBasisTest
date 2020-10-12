@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
 
-/**《Java并发编程的艺术》 ，4-12
+/**
+ * 《Java并发编程的艺术》 ，4-12
  * 管道输入/输出流，主要用于线程之间的数据传输，传输的媒介为内存
+ *
  * @author wss
  * @created 2020/8/11 10:58
  * @since 1.0
@@ -25,6 +27,7 @@ public class Piped {
         }
 
     }
+
     // Print线程使用PipedReader将内容读出并打印
     static class Print implements Runnable {
 

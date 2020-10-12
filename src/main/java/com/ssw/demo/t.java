@@ -29,6 +29,7 @@ public class t {
             System.out.println(re);
         }
     }
+
     @Test
     public void t2() {
         int[][] a = new int[3][3];
@@ -112,9 +113,9 @@ public class t {
         Integer j_ = Integer.valueOf(127);
         Integer i2 = 129;
         Integer j2 = 129;
-        System.out.println(i==j);    // 返回false
-        System.out.println(i_==j_);  // 返回true
-        System.out.println(i2==j2);  // fales
+        System.out.println(i == j);    // 返回false
+        System.out.println(i_ == j_);  // 返回true
+        System.out.println(i2 == j2);  // fales
         Object t1 = new Object();
         Object t2 = new Object();
         Object t3 = t2;
@@ -124,24 +125,24 @@ public class t {
         String s = "s";
     }
 
-    public int[] twoSum (int[] numbers, int target){
+    public int[] twoSum(int[] numbers, int target) {
         // write code here
         Map map = new HashMap();
         int i = 0;
-        for (; i< numbers.length; i++){
-            if (!map.containsKey(target - numbers[i])){
-                map.put(numbers[i], i+1);
-            }else{
+        for (; i < numbers.length; i++) {
+            if (!map.containsKey(target - numbers[i])) {
+                map.put(numbers[i], i + 1);
+            } else {
                 break;
             }
         }
 //        return new int[]{(int)map.get(target - numbers[j]),j};
-        return new int[]{i+1,target - numbers[i]};
+        return new int[]{i + 1, target - numbers[i]};
     }
 
     @Test
     public void twoSum() {
-        int[] nums = new int[]{3,2,4};
+        int[] nums = new int[]{3, 2, 4};
         int target = 6;
         System.out.println(twoSum(nums, target)[0]);
         System.out.println(twoSum(nums, target)[1]);
@@ -162,8 +163,8 @@ public class t {
 
     @Test
     public void assertTest() {
-        assert 1==0;            // 抛出异常（java.lang.AssertionError）
-        assert 1==0:"1不等于0";  // 抛出异常（java.lang.AssertionError: 1不等于0）
+        assert 1 == 0;            // 抛出异常（java.lang.AssertionError）
+        assert 1 == 0 : "1不等于0";  // 抛出异常（java.lang.AssertionError: 1不等于0）
 
     }
 

@@ -27,7 +27,7 @@ public class LockTest {
                         // --tickets：先对tickets-1,再使用tickets的值
                         System.out.println(Thread.currentThread().getName() +
                                 "正在售票，余额为：" + (--tickets));
-                    }else {
+                    } else {
                         System.out.println("票已售完！");
                         break;
                     }

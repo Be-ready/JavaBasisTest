@@ -11,9 +11,9 @@ import java.util.Set;
 /**
  * 《Redis实战》
  * 2.1 登录和cookie缓存
- *  1.使用hash存储cookie令牌和已登录用户之间的映射(key形式为login:,filed形式为token,value形式为user:userId)
- *  2.使用有序集合保存用户最近浏览的商品（key形式为viewed:token, element形式为item:itemId, score形式为系统当前时间）
- *  3.使用有序集合存储令牌最后一次出现的时间（key形式为recent:, element形式为token, score形式为系统当前时间）
+ * 1.使用hash存储cookie令牌和已登录用户之间的映射(key形式为login:,filed形式为token,value形式为user:userId)
+ * 2.使用有序集合保存用户最近浏览的商品（key形式为viewed:token, element形式为item:itemId, score形式为系统当前时间）
+ * 3.使用有序集合存储令牌最后一次出现的时间（key形式为recent:, element形式为token, score形式为系统当前时间）
  * 2.2使用redis实现购物车示例
  *
  * @author wss
@@ -44,14 +44,13 @@ public class loginAndCookie {
     }
 
     /**
-     *
      * @throws InterruptedException
      */
     public void cleanSessions() throws InterruptedException {
         Set<String> tokens;
-        String[] sessionKeys  = new String[100];
+        String[] sessionKeys = new String[100];
         String[] tokensString = new String[100];  // 保存100个旧的令牌
-        String[] cartSession  = new String[100];
+        String[] cartSession = new String[100];
         while (!QUIT) {
             long size = conn.zcard("recent:");
 
@@ -67,10 +66,10 @@ public class loginAndCookie {
             // 3.从存储用户最近浏览的商品的有序集合中删除对应的信息
             long end_index = Math.min(size - LIMIT, 100);
             tokens = conn.zrange("recent:", 0, end_index - 1);
-            int i  = 0;
+            int i = 0;
             for (String token : tokens) {
-                sessionKeys[i]  = "viewed:" + token;
-                cartSession[i]  = "cart:"   + token;
+                sessionKeys[i] = "viewed:" + token;
+                cartSession[i] = "cart:" + token;
                 tokensString[i] = token;
                 i++;
             }

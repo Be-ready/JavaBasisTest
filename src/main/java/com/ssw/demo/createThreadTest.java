@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 public class createThreadTest {
 
     // 实现Runnable接口
-    public static class Thread1 implements Runnable{
+    public static class Thread1 implements Runnable {
         @Override
         public void run() {
             System.out.println("this is a thread created by Runnable");

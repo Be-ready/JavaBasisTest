@@ -45,7 +45,6 @@ public class ChatServer {
         }
 
         /**
-         *
          * @param str
          */
         public void send(String str) {
@@ -92,7 +91,7 @@ public class ChatServer {
                     isFind = true;
                 }
             }
-            send(this.name + ":" + read + (isFind ? "" : "\n抱歉，没有找到"+this.name+"用户"));
+            send(this.name + ":" + read + (isFind ? "" : "\n抱歉，没有找到" + this.name + "用户"));
         }
 
         // 如何实现一个客户端与其他客户端的通信？

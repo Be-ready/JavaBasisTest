@@ -1,9 +1,10 @@
 package com.ssw.demo;
 
-/** 模仿人到银行取钱
+/**
+ * 模仿人到银行取钱
  * 注释：
- *      synchronized是java的关键字，在jvm层面上
- *      1. 获取锁的线程执行完同步代码后会释放锁；2.线程执行发生异常时，jvm会让线程释放锁
+ * synchronized是java的关键字，在jvm层面上
+ * 1. 获取锁的线程执行完同步代码后会释放锁；2.线程执行发生异常时，jvm会让线程释放锁
  *
  * @author wss
  * @created 2020/8/10 14:53
@@ -16,16 +17,16 @@ public class synchronizedTest {
 
         // synchronized修饰方法
         private synchronized void getMoney(int money) {
-            if (MyMoney <= 0 || (MyMoney-money) < 0) {
+            if (MyMoney <= 0 || (MyMoney - money) < 0) {
                 System.out.println("余额不足");
-            }else {
+            } else {
                 try {
                     // sleep()方法会使线程暂停，但不会释放对象锁
                     Thread.sleep((long) (Math.random() * 1000));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("取"+money);
+                System.out.println("取" + money);
                 MyMoney -= money;
             }
             System.out.println("账户剩余的钱" + MyMoney);
@@ -34,6 +35,7 @@ public class synchronizedTest {
 
     public static class Thread1 extends Thread {
         private BankAccount bankAccount;
+
         private Thread1(BankAccount bankAccount) {
             this.bankAccount = bankAccount;
         }

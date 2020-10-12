@@ -1,6 +1,8 @@
 package com.ssw.demo.PatternTest.DecoratorPattern;
 
-/** 创建实现了Shape接口的抽象装饰类
+/**
+ * 创建实现了Shape接口的抽象装饰类
+ *
  * @author wss
  * @created 2020/9/14 16:36
  * @since 1.0
