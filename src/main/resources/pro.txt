@@ -1,0 +1,2 @@
+className=com.ssw.demo.ReflectionTest.Vo
+methodName=test
