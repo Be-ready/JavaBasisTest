@@ -1,4 +1,4 @@
-package com.ssw.demo;
+package com.ssw.demo.ConcurrentPackageTest;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

@@ -177,4 +177,44 @@ public class t {
         Collections.synchronizedMap(new HashMap<>());
         Collections.synchronizedSet(new HashSet<>());
     }
+
+    @Test
+    public void testCollection() {
+
+        Collection c = new HashSet();
+    }
+
+    @Test
+    public void testString() {
+        String s = new String("书籍");
+        String s2 = "书籍";
+        System.out.println(s.equals(s2));  // true(String字符串使用equals比较时，比较的是每个字符)
+        System.out.println(s==s2);         // false
+
+        String s3 = new String("漫画册");  // 在堆中创建字符串"漫画册"，此时常量池中没有字符串"漫画册"，会在常量池中创建该字符串
+        String s4 = s3.intern();                 // intern()在常量池中保存一份指向字符串"漫画册"的引用，即为s4
+        String s5 = "漫画册";                     // 在常量池中保存一份字符串"漫画册"
+        System.out.println(s3==s4);        // false  s3是堆中字符串"漫画册"的地址，s4是指向常量池中字符串"漫画册"的引用地址
+        System.out.println(s3.equals(s4)); // true
+        System.out.println(s4 == s5);      // true
+        System.out.println(s4.equals(s5)); // true
+
+        String c = "巨人";
+        String c1 = new String("巨人");
+        System.out.println(c==c1);          // false一个地址在常量池，一个在堆中，==肯定不同
+        System.out.println(c.equals(c1));   // true
+    }
+
+    @Test
+    public void operationTest() {
+        System.out.println(3 & 5);  // 与   输出1
+        System.out.println(3 | 5);  // 或   输出7
+        System.out.println(3 ^ 5);  // 异或  输出6
+        System.out.println(3%2);
+        System.out.println((3+2)%3);
+        System.out.println((3+2)/3);
+        System.out.println((3+2)/2);
+        List list = new ArrayList();
+    }
+
 }

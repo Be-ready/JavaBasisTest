@@ -25,8 +25,11 @@ public class ParaAnnoTest {
     @Test
     public void testMyFiled() {
 
-        Class c = ParaAnnoTest.class;
-        for (Field f : c.getDeclaredFields()) {
+        Class c = ParaAnnoTest.class;  // 通过反射获取ParaAnnoTest的类
+        Field[] f1 = c.getDeclaredFields();
+        for (Field f : c.getDeclaredFields()) {  // getDeclaredField获得共有属性
+//            f.setAccessible(true);  // 如果是私有属性，需设置true
+
             if (f.isAnnotationPresent(MyFiled.class)) {
                 MyFiled anno = f.getAnnotation(MyFiled.class);
                 System.out.println("字段:{" + f.getName() + "}, 描述:{" + anno.description()

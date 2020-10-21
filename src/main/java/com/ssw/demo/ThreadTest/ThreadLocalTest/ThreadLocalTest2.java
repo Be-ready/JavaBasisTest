@@ -1,4 +1,4 @@
-package com.ssw.demo;
+package com.ssw.demo.ThreadTest.ThreadLocalTest;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

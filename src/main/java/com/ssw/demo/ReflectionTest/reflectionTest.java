@@ -1,6 +1,7 @@
 package com.ssw.demo.ReflectionTest;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -58,6 +59,17 @@ public class reflectionTest {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        // 通过配置文件+反射  pro.txt
+        Properties p = new Properties();
+        try {
+            p.load(new FileReader("src/main/resources/pro.txt"));
+            String className = p.getProperty("className");
+            Class<?> c3 = Class.forName(className);
+            System.out.println("第四种方式：" + c3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -187,8 +199,8 @@ public class reflectionTest {
 
     public static void main(String[] args) {
         reflectionTest t = new reflectionTest();
-        t.getClassRealType();
-//        t.getClassM();
+//        t.getClassRealType();
+        t.getClassM();
 //        t.getContruction();
 //        t.getContructionWithPara();
 //        t.getMethod();
