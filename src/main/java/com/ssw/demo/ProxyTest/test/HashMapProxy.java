@@ -38,5 +38,7 @@ public class HashMapProxy implements InvocationHandler {
         HashMapProxy hmp = new HashMapProxy();
         Map m = hmp.newInstance();
         System.out.println(m);
+        m.put("test", "test");
+        System.out.println(m);
     }
 }

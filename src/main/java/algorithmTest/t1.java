@@ -1,5 +1,7 @@
 package algorithmTest;
 
+import java.util.LinkedList;
+
 /**
  * 今日头条算法面试题
  * 题目描述：
@@ -17,7 +19,8 @@ package algorithmTest;
 public class t1 {
     private int getNum(int redNum, int blueNum) {
         if (redNum == 0 || blueNum == 0) return 1;
-        return getNum(redNum, blueNum - 1) + getNum(redNum - 1, blueNum);
+        int tmp = getNum(redNum, blueNum - 1) + getNum(redNum - 1, blueNum);
+        return tmp;
     }
 
     public static void main(String[] args) {
@@ -25,6 +28,5 @@ public class t1 {
         int redNum = 1;
         t1 t = new t1();
         System.out.println(t.getNum(redNum, num - redNum));
-
     }
 }

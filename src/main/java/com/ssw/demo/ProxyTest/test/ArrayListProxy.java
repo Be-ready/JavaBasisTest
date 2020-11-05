@@ -19,15 +19,15 @@ public class ArrayListProxy implements InvocationHandler {
 
     private List newInstance() {
         List list_proxy = (List) Proxy.newProxyInstance(
-                this.getClass().getClassLoader(),
+                list.getClass().getClassLoader(),
                 list.getClass().getInterfaces(),
-                this);
+                this::invoke);
         return list_proxy;
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
+        list.add("msg");
         return method.invoke(list, args);
     }
 

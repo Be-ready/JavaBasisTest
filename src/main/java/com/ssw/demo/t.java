@@ -10,6 +10,19 @@ import java.util.*;
  * @since 1.0
  */
 public class t {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        System.out.println(s);
+        String[] s_ = s.split(" ");
+        System.out.println(s_);
+        int[] s_2 = new int[s_.length];
+        for(int i=0; i<s_.length; i++){
+            s_2[i] = Integer.valueOf(s_[i]);
+            System.out.println(s_2[i]);
+        }
+    }
     @Test
     public void te() {
 
@@ -217,4 +230,58 @@ public class t {
         List list = new ArrayList();
     }
 
+    @Test
+    public void _1022() {
+        Integer a = 128;
+        Integer b = 128;
+        Integer c = new Integer(128);
+        Integer d = new Integer(128);
+        System.out.println(a == b);         // false
+        System.out.println(c == d);         // false
+        System.out.println(c.equals(d));    // true
+        System.out.println(b.equals(d));    // true
+    }
+
+    @Test
+    public void _1023() {
+        String s1 = "hello";
+        String s2 = "he" + new String("llo");
+        String s3 = "he" + "llo";
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s3);
+    }
+
+    @Test
+    public void _1023_1() {
+        List<String> a = null;
+        test_10_23(a);
+        System.out.println(a.size());
+    }
+
+    private void test_10_23(List<String> a) {
+        a = new ArrayList<>();
+        a.add("ss");
+    }
+    @Test
+    public void _1023_2() {
+        System.out.println(Integer.MAX_VALUE*2);
+        System.out.println(Integer.MIN_VALUE*2);
+    }
+
+    @Test
+    public void _1023_3() {
+        String s1 = "ss";
+        char[] s = s1.toCharArray();
+    }
+
+    @Test
+    public void _1024_1() {
+        String s = "";
+        int i = s.length();
+        System.out.println(i);
+        String s1 = "ss1";
+        String s2 = s1;
+        System.out.println(s1 ==s2);
+        Map map = new HashMap();
+    }
 }
