@@ -7,6 +7,12 @@ import java.util.Arrays;
  */
 public class Sort2 {
 
+    /**
+     * 归并排序
+     * @param a
+     * @param left
+     * @param right
+     */
     public static void mergeSort(int a[], int left, int right) {
         // 分解
         if(left >= right) return;
@@ -41,6 +47,10 @@ public class Sort2 {
         }
     }
 
+    /**
+     * 堆排序
+     * @param a
+     */
     public static void heapSort(int[] a) {
 
         // 建立大根堆
@@ -76,6 +86,12 @@ public class Sort2 {
         }
     }
 
+    /**
+     * 快排
+     * @param a
+     * @param left
+     * @param right
+     */
     public static void quickSort(int[] a, int left, int right) {
         if(left > right) return;
         int i = left, j = right, rule = a[left];
@@ -99,11 +115,25 @@ public class Sort2 {
         quickSort(a, i+1, right);
     }
 
+    public static void insertSort(int[] a) {
+        int preIndex, curVal;
+        for (int i = 0; i < a.length-1; i++) {
+            preIndex = i;
+            curVal = a[i+1];
+            while (preIndex >= 0 && curVal < a[preIndex]) {
+                a[preIndex + 1] = a[preIndex];
+                preIndex--;
+            }
+            a[preIndex+1] = curVal;
+        }
+    }
+
     public static void main(String[] args) {
         int[] a = new int[]{3, 33, 15, 26, 27, 2, 5};
 //        mergeSort(a, 0, a.length-1);
 //        heapSort(a);
-        quickSort(a, 0, a.length-1);
+//        quickSort(a, 0, a.length-1);
+        insertSort(a);
         System.out.println(Arrays.toString(a));
     }
 }
